@@ -1,12 +1,10 @@
 import {
-	Image,
 	KeyboardAvoidingView,
+	Platform,
 	StyleSheet,
 	View,
-	// Input,
-	Button,
 } from "react-native";
-import { Input } from "react-native-elements";
+import { Button, Input, Image } from "@rneui/themed";
 import { StatusBar } from "expo-status-bar";
 import React, { useState } from "react";
 
@@ -17,13 +15,16 @@ const LoginScreen = () => {
 	const signIn = () => {};
 
 	return (
-		<KeyboardAvoidingView behavior="padding" style={styles.container}>
+		<KeyboardAvoidingView
+			behavior={Platform.OS === "ios" ? "padding" : "height"}
+			style={styles.container}
+		>
 			<StatusBar style="light" />
 			<Image
 				source={{
 					uri: "https://upload.wikimedia.org/wikipedia/commons/5/56/Logo_Signal..png",
 				}}
-				style={{
+				containerStyle={{
 					width: 200,
 					height: 200,
 				}}
@@ -45,12 +46,12 @@ const LoginScreen = () => {
 				/>
 			</View>
 			<Button
-				style={styles.button}
+				containerStyle={styles.button}
 				onPress={signIn}
 				title="Login"
 			/>
 			<Button
-				style={styles.button}
+				containerStyle={styles.button}
 				type="outline"
 				title="Register"
 			/>

@@ -1,9 +1,10 @@
+import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { NavigationContainer } from "@react-navigation/native";
-import { createStackNavigator } from "@react-navigation/stack/src/index";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { StyleSheet } from "react-native";
 import LoginScreen from "./screens/LoginScreen";
 
-const Stack = createStackNavigator();
+const Stack = createNativeStackNavigator();
 
 const globalScreenOptions = {
 	headerStyle: { backgroundColor: "#2c6bed" },
@@ -13,11 +14,13 @@ const globalScreenOptions = {
 
 export default function App() {
 	return (
-		<NavigationContainer>
-			<Stack.Navigator screenOptions={globalScreenOptions}>
-				<Stack.Screen name="Login" component={LoginScreen} />
-			</Stack.Navigator>
-		</NavigationContainer>
+		<SafeAreaProvider>
+			<NavigationContainer>
+				<Stack.Navigator screenOptions={globalScreenOptions}>
+					<Stack.Screen name="Login" component={LoginScreen} />
+				</Stack.Navigator>
+			</NavigationContainer>
+		</SafeAreaProvider>
 	);
 }
 
