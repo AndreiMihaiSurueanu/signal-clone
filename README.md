@@ -3,6 +3,15 @@
 
 <!-- 
 
+✅ Your project is ready!
+
+To run your project, run one of the following npm commands.
+
+- npm run android
+- npm run ios # you need to use macOS to build the iOS project - use the Expo app if you need to do iOS development without a Mac      
+- npm run web
+
+
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
 // TODO: Add SDKs for Firebase products that you want to use
