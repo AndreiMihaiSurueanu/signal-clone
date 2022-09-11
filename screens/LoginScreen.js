@@ -1,14 +1,9 @@
-import {
-	KeyboardAvoidingView,
-	Platform,
-	StyleSheet,
-	View,
-} from "react-native";
+import { KeyboardAvoidingView, Platform, StyleSheet, View } from "react-native";
 import { Button, Input, Image } from "@rneui/themed";
 import { StatusBar } from "expo-status-bar";
 import React, { useState } from "react";
 
-const LoginScreen = () => {
+const LoginScreen = ({ navigation }) => {
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
 
@@ -51,6 +46,7 @@ const LoginScreen = () => {
 				title="Login"
 			/>
 			<Button
+				onPress={() => navigation.navigate("Register")}
 				containerStyle={styles.button}
 				type="outline"
 				title="Register"
