@@ -19,13 +19,14 @@ const RegisterScreen = ({ navigation }) => {
 	const register = () => {
 		auth.createUserWithEmailAndPassword(email, password)
 			.then((authUser) => {
-				console.log(authUser)
-				authUser.user.update({
+				authUser.user.updateProfile({
 					displayName: name,
 					photoURL:
 						imageUrl ||
 						"https://avatarairlines.com/wp-content/uploads/2020/05/Male-placeholder.jpeg",
 				});
+				navigation.goBack();
+				navigation.replace("Home");
 			})
 			.catch((error) => alert(error.message));
 	};
