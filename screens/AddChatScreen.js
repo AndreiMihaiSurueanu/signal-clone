@@ -1,5 +1,5 @@
 import { StyleSheet, View } from "react-native";
-import { Button, Input, Image } from "@rneui/themed";
+import { Button, Input } from "@rneui/themed";
 import React, { useLayoutEffect, useState } from "react";
 import Icon from "react-native-vector-icons/FontAwesome";
 import { db } from "../firebase";
@@ -32,7 +32,7 @@ const AddChatScreen = ({ navigation }) => {
 				placeholder="Enter a chat name"
 				value={input}
 				onChangeText={(text) => setInput(text)}
-				onSubmitEditing={createChat}
+				onSubmitEditing={input && createChat}
 				leftIcon={
 					<Icon
 						name="wechat"
@@ -42,7 +42,7 @@ const AddChatScreen = ({ navigation }) => {
 					/>
 				}
 			/>
-			<Button onPress={createChat} title="Create new Chat" />
+			<Button disabled={!input} onPress={createChat} title="Create new Chat" />
 		</View>
 	);
 };
