@@ -1,4 +1,4 @@
-import { KeyboardAvoidingView, StyleSheet, View } from "react-native";
+import { KeyboardAvoidingView, Platform, StyleSheet, View } from "react-native";
 import React, { useLayoutEffect, useState } from "react";
 import { Button, Input, Text } from "@rneui/themed";
 import { auth } from "../firebase";

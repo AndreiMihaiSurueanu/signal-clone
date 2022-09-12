@@ -54,7 +54,7 @@ const ChatScreen = ({ navigation, route }) => {
 				</View>
 			),
 			headerLeft: () =>
-				Platform.OS === "ios" && (
+				Platform.OS !== "android" ? (
 					<TouchableOpacity
 						style={{
 							marginLeft: 10,
@@ -63,14 +63,17 @@ const ChatScreen = ({ navigation, route }) => {
 					>
 						<AntDesign name="arrowleft" size={24} color="white" />
 					</TouchableOpacity>
-				),
+				) : null,
 			headerRight: () => (
 				<View
 					style={{
 						flexDirection: "row",
 						justifyContent: "space-between",
 						width: 70,
-						marginRight: 10,
+						marginRight:
+							Platform.OS !== "ios" && Platform.OS !== "android"
+								? 20
+								: 10,
 					}}
 				>
 					<TouchableOpacity>

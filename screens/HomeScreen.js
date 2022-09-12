@@ -1,4 +1,5 @@
 import {
+	Platform,
 	SafeAreaView,
 	ScrollView,
 	StyleSheet,
@@ -42,7 +43,15 @@ const HomeScreen = ({ navigation }) => {
 			headerTitleStyle: { color: "black" },
 			headerTintColor: "black",
 			headerLeft: () => (
-				<View style={{ marginRight: 10 }}>
+				<View
+					style={{
+						marginRight: 10,
+						marginLeft:
+							Platform.OS !== "ios" && Platform.OS !== "android"
+								? 20
+								: 0,
+					}}
+				>
 					<TouchableOpacity onPress={signOutUser} activeOpacity={0.5}>
 						<Avatar
 							rounded
@@ -56,7 +65,11 @@ const HomeScreen = ({ navigation }) => {
 					style={{
 						flexDirection: "row",
 						justifyContent: "space-between",
-						width: 80,
+						marginRight:
+							Platform.OS !== "ios" && Platform.OS !== "android"
+								? 30
+								: 10,
+						width: 70,
 					}}
 				>
 					<TouchableOpacity activeOpacity={0.5}>
